@@ -1,8 +1,7 @@
 /*Variables*/
 .body {
-	--at-button-height: 48;
+	--at-button-height: 48px;
 	--at-row-count: 2;
-	--at-row-count: 0;
 }
 
 /*Multi Row Toolbar*/
@@ -43,15 +42,30 @@
 		height: calc(
 			var(--at-button-height) * var(--at-row-count) + var(--at-spacing)
 		) !important;
+		max-height: 40vh !important;
+		overflow-y: auto;
 	}
 	.mobile-toolbar-options-list {
 		height: calc(
 			var(--at-button-height) * var(--at-row-count) + var(--at-spacing)
 		) !important;
+		max-height: 40vh !important;
+		overflow-y: auto;
 	}
 }
 .AT-no-toolbar {
 	.mobile-toolbar {
 		display: none;
 	}
+}
+
+/* Failsafe for mobile toolbar height */
+.is-mobile .mobile-toolbar {
+	max-height: 40vh !important;
+}
+
+/* Fix for single row toolbar */
+.is-mobile:not(.AT-multirow) .mobile-toolbar {
+	height: auto !important;
+	max-height: calc(var(--at-button-height) + 16px) !important;
 }
