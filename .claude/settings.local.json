@@ -6,7 +6,8 @@
       "Bash(git add:*)",
       "Bash(grep:*)",
       "Bash(rg:*)",
-      "Bash(npm run version:*)"
+      "Bash(npm run version:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
