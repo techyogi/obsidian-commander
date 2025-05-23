@@ -1,6 +1,6 @@
 /*Variables*/
 .body {
-	--at-button-height: 40px;
+	--at-button-height: 28px;
 	--at-row-count: 2;
 }
 
@@ -13,10 +13,12 @@
 .is-mobile {
 	.mobile-toolbar {
 		position: sticky !important;
+		top: 0 !important;
 		z-index: 5;
-		margin-bottom: var(--at-offset);
+		margin-bottom: 0 !important;
 	}
 }
+/* Temporarily disabled - may be causing layout issues
 .AT-always-shown {
 	.is-pinned {
 		.workspace-drawer-inner {
@@ -26,7 +28,7 @@
 			);
 		}
 	}
-}
+} */
 .AT-multirow.AT-column {
 	.mobile-toolbar-options-list {
 		flex-flow: row wrap;
@@ -36,6 +38,7 @@
 .mobile-toolbar-option {
 	height: var(--at-button-height);
 	min-width: var(--at-button-width);
+	line-height: 1 !important;
 }
 .AT-multirow {
 	.mobile-toolbar {
@@ -64,18 +67,44 @@
 	max-height: 25vh !important;
 }
 
+/* Fix for mobile toolbar spacer */
+.is-mobile .mobile-toolbar-spacer {
+	display: none !important;
+	height: 0 !important;
+}
+
 /* Fix for single row toolbar */
 .is-mobile:not(.AT-multirow) .mobile-toolbar {
-	height: auto !important;
-	max-height: calc(var(--at-button-height) + 8px) !important;
+	height: calc(var(--at-button-height) + 4px) !important;
+	max-height: calc(var(--at-button-height) + 4px) !important;
+	overflow: hidden !important;
 }
 
 /* Additional fix for mobile toolbar padding and spacing */
 .is-mobile .mobile-toolbar {
-	padding-top: 4px !important;
-	padding-bottom: 4px !important;
+	padding: 2px 0 !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: stretch !important;
+	justify-content: flex-start !important;
+}
+
+.is-mobile .mobile-toolbar-options-list {
+	margin: 0 !important;
+	margin-top: 0 !important;
+	padding: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	gap: 0 !important;
+	position: relative !important;
+	top: 0 !important;
 }
 
 .is-mobile .mobile-toolbar-option {
-	margin: 2px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
 }
+
